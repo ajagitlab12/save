@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toggle Button</title>
+<style>
+ button{
+  margin:auto;
+  display: flex; /* 👈 Key change: Use flexbox */
+  justify-content: center; /* 👈 Key change: Center content horizontally */
+  align-items: center; /* 👈 Key change: Center content vertically (optional but good practice) */
+  cursor: pointer;
+  border-radius: 18px;
+  border:none;
+  color:white;font-weight: bold;font-family:Arial, Helvetica, sans-serif;
+  padding: 10px 20px;
+  width:100px; /* Keep this width to comfortably fit 'SUBMITTED' */
+  background:linear-gradient(to right,#D500F9,red,orange);
+    transition: 0.3s ease-in-out; 
+    /* Important: The content (text) inside the button is now perfectly centered */
+ }
+
+ button:hover{
+  opacity: 0.9;
+ }
+ button:active{
+  transform: scale(0.77);
+ }
+
+  /* This CSS class provides the glow for the SUBMITTED state */
+  .clicked-glow {
+    box-shadow: -4px 0 16px #D500F9, 4px 0 16px orange;
+    filter: brightness(0.9); 
+  }
+</style>
+</head>
+<body>
+<iframe width="560" height="315" 
+    src="https://www.youtube.com/embed/5xFRg_TzlAg?si=uM1x00dQVzdYlrdV" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+</iframe> 
+
+<audio src="https://youtu.be/XZwBNDGuWGU?si=6ytIdlxtG032utJZ" controls></audio>
+<span style="background-color: red;">
+<pre>
+
+    
+
+</pre></span>
+<button id="go" >SUBMIT </button>
+<script>
+ const go = document.getElementById("go");
+ 
+ go.addEventListener("click", () => {
+  // Check if the button currently has the glow class
+  if (go.classList.contains("clicked-glow")) {
+    // State 2: It's currently 'SUBMITTED' and glowing.
+    // Action: Remove glow and set text back to 'GO'.
+    go.classList.remove("clicked-glow");
+    go.textContent = "SUBMIT";
+  } else {
+    // State 1: It's currently 'GO' and not glowing.
+    // Action: Add glow and set text to 'SUBMITTED'.
+    go.classList.add("clicked-glow");
+    go.textContent = "SUBMITTED ";
+  }
+ });
+ </script>
+</body>
+</html>
